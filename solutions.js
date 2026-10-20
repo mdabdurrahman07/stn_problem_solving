@@ -114,3 +114,29 @@ var removeDuplicates = function (nums) {
   }
   return writeIndex;
 };
+
+// Problem 13
+
+var containsDuplicate = function (nums) {
+  const seen = new Set();
+  for (const value of nums) {
+    if (seen.has(value)) return true;
+    seen.add(value);
+  }
+  return false;
+};
+
+// Problem 14
+
+var moveZeroes = function (nums) {
+  let writeIndex = 0;
+  for (let readIndex = 0; readIndex < nums.length; readIndex++) {
+    if (nums[readIndex] !== 0) {
+      nums[writeIndex] = nums[readIndex];
+      writeIndex++;
+    }
+  }
+  for (let i = writeIndex; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+};
