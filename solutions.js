@@ -74,3 +74,43 @@ var fizzBuzz = function (n) {
   }
   return result;
 };
+
+// Problem 10 
+
+var runningSum = function (nums) {
+  const result = new Array(nums.length);
+  let total = 0;
+  for (let i = 0; i < nums.length; i++) {
+    total += nums[i];
+    result[i] = total;
+  }
+  return result;
+};
+
+
+// Problem 11
+
+var maximumWealth = function (accounts) {
+  let richest = 0;
+  for (const customer of accounts) {
+    let wealth = 0;
+    for (const balance of customer) wealth += balance;
+    if (wealth > richest) richest = wealth;
+  }
+  return richest;
+};
+
+// Problem 12
+
+var removeDuplicates = function (nums) {
+  if (nums.length === 0) return 0;
+ 
+  let writeIndex = 1;
+  for (let readIndex = 1; readIndex < nums.length; readIndex++) {
+    if (nums[readIndex] !== nums[writeIndex - 1]) {
+      nums[writeIndex] = nums[readIndex];
+      writeIndex++;
+    }
+  }
+  return writeIndex;
+};
