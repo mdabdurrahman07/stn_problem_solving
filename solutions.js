@@ -1,0 +1,9 @@
+// Problem 1
+
+var staircase = function (n) {
+  const rows = [];
+  for (let i = 1; i <= n; i++) {
+    rows.push(' '.repeat(n - i) + '#'.repeat(i));
+  }
+  return rows.join('\n');
+};
