@@ -49,3 +49,28 @@ var solution = function (str) {
 var positiveSum = function (arr) {
   return arr.reduce((total, value) => (value > 0 ? total + value : total), 0);
 };
+
+// Problem 7
+
+var summation = function (num) {
+  return (num * (num + 1)) / 2;
+};
+
+// Problem 8
+
+var booleanToString = function (b) {
+  return b ? "true" : "false";
+};
+
+// Problem 9
+
+var fizzBuzz = function (n) {
+  const result = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) result.push("FizzBuzz");
+    else if (i % 3 === 0) result.push("Fizz");
+    else if (i % 5 === 0) result.push("Buzz");
+    else result.push(String(i));
+  }
+  return result;
+};
