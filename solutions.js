@@ -140,3 +140,81 @@ var moveZeroes = function (nums) {
     nums[i] = 0;
   }
 };
+
+// Problem 15
+
+var merge = function (nums1, m, nums2, n) {
+  let i = m - 1;
+  let j = n - 1;
+  let write = m + n - 1;
+ 
+  while (j >= 0) {
+    if (i >= 0 && nums1[i] > nums2[j]) {
+      nums1[write] = nums1[i];
+      i--;
+    } else {
+      nums1[write] = nums2[j];
+      j--;
+    }
+    write--;
+  }
+};
+
+// Problem 17
+
+var plusOne = function (digits) {
+  const result = [...digits];
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i] < 9) {
+      result[i]++;
+      return result;
+    }
+    result[i] = 0;
+  }
+  return [1, ...result];
+};
+
+// Problem 18
+
+var reverseString = function (s) {
+  let left = 0;
+  let right = s.length - 1;
+  while (left < right) {
+    const temp = s[left];
+    s[left] = s[right];
+    s[right] = temp;
+    left++;
+    right--;
+  }
+};
+
+
+// Problem 19 
+
+var lengthOfLastWord = function (s) {
+  let end = s.length - 1;
+  while (end >= 0 && s[end] === ' ') end--;
+ 
+  let length = 0;
+  while (end >= 0 && s[end] !== ' ') {
+    length++;
+    end--;
+  }
+  return length;
+};
+
+// Problem 20
+
+var longestCommonPrefix = function (strs) {
+  if (strs.length === 0) return '';
+ 
+  const first = strs[0];
+  for (let index = 0; index < first.length; index++) {
+    for (let k = 1; k < strs.length; k++) {
+      if (index >= strs[k].length || strs[k][index] !== first[index]) {
+        return first.slice(0, index);
+      }
+    }
+  }
+  return first;
+};
